@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Financeiro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="pagina-painel">
+
+    <!-- CABEÇALHO -->
+    <header class="topo-painel">
+
+        <div class="logo-painel">
+            <span>FIN</span>
+            <h2>Financeiro</h2>
+        </div>
+
+        <div class="usuario-painel">
+            <span>Olá, {{ nome }}!</span>
+
+            <a href="{{ url_for('sair') }}" class="botao-sair">
+                Sair
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-painel">
+
+        <section class="boas-vindas">
+
+            <p class="subtitulo-painel">
+                SEU CONTROLE FINANCEIRO
+            </p>
+
+            <h1>O que vamos calcular hoje?</h1>
+
+            <p>
+                Escolha uma ferramenta para começar a organizar
+                e entender melhor seus cálculos financeiros.
+            </p>
+
+        </section>
+
+
+        <!-- FERRAMENTAS -->
+        <section class="grade-ferramentas">
+
+
+            <!-- PORCENTAGEM -->
+            <a href="{{ url_for('porcentagem') }}"
+               class="cartao-ferramenta destaque">
+
+                <div class="icone-ferramenta">%</div>
+
+                <h3>Porcentagem</h3>
+
+                <p>
+                    Calcule porcentagens, descontos e acréscimos.
+                </p>
+
+                <span class="status-ferramenta ativo">
+                    Abrir calculadora
+                </span>
+
+            </a>
+
+
+            <!-- JUROS SIMPLES -->
+            <a href="{{ url_for('juros_simples') }}"
+               class="cartao-ferramenta">
+
+                <div class="icone-ferramenta">R$</div>
+
+                <h3>Juros simples</h3>
+
+                <p>
+                    Calcule juros e montante sobre um capital.
+                </p>
+
+                <span class="status-ferramenta ativo">
+                    Abrir calculadora
+                </span>
+
+            </a>
+
+
+            <!-- JUROS COMPOSTOS -->
+            <a href="{{ url_for('juros_compostos') }}"
+               class="cartao-ferramenta">
+
+                <div class="icone-ferramenta">↗</div>
+
+                <h3>Juros compostos</h3>
+
+                <p>
+                    Simule o crescimento de um valor ao longo do tempo.
+                </p>
+
+                <span class="status-ferramenta ativo">
+                    Abrir calculadora
+                </span>
+
+            </a>
+
+
+            <!-- CONVERSOR DE TEMPO -->
+            <a href="{{ url_for('conversor_tempo') }}"
+               class="cartao-ferramenta">
+
+                <div class="icone-ferramenta">◷</div>
+
+                <h3>Conversor de tempo</h3>
+
+                <p>
+                    Converta segundos, minutos, horas, dias, meses e anos.
+                </p>
+
+                <span class="status-ferramenta ativo">
+                    Abrir conversor
+                </span>
+
+            </a>
+
+
+            <!-- HISTÓRICO -->
+            <a href="{{ url_for('historico') }}"
+               class="cartao-ferramenta">
+
+                <div class="icone-ferramenta">▥</div>
+
+                <h3>Histórico</h3>
+
+                <p>
+                    Consulte os cálculos realizados na sua conta.
+                </p>
+
+                <span class="status-ferramenta ativo">
+                    Ver histórico
+                </span>
+
+            </a>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape-painel">
+
+        <p>
+            Seu conhecimento financeiro começa com um cálculo.
+        </p>
+
+    </footer>
+
+</body>
+</html>
