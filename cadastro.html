@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<div class="cadastro">
+
+    <body>
+
+        <form action="/cadastrar" method="post">
+            <input type="text" name="nome" required placeholder="Digite seu nome">
+
+            <input type="number" name="idade" required placeholder="Digite sua idade">
+
+            <input type="password" name="senha" required placeholder="Digite sua senha">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+    </body>
+</div>
+
+</html>
