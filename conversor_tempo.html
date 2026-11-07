@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de tempo | Financeiro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="pagina-calculo">
+    <main class="calculadora-card">
+        <a class="voltar-painel" href="{{ url_for('painel') }}">← Voltar ao painel</a>
+        <div class="cabecalho-calculo">
+            <span class="icone-calculo">◷</span>
+            <p class="etiqueta-calculo">FERRAMENTA DE CONVERSÃO</p>
+            <h1>Conversor de tempo</h1>
+            <p>Transforme uma unidade de tempo em outra.</p>
+        </div>
+
+        <form method="POST" class="form-calculo">
+            <label for="valor">Quantidade</label>
+            <input type="number" id="valor" name="valor" min="0" step="any" placeholder="Ex.: 30" required>
+
+            <label for="origem">Converter de</label>
+            <select id="origem" name="origem">
+                <option value="segundos">Segundos</option>
+                <option value="minutos">Minutos</option>
+                <option value="horas">Horas</option>
+                <option value="dias" selected>Dias</option>
+                <option value="meses">Meses</option>
+                <option value="anos">Anos</option>
+            </select>
+
+            <label for="destino">Converter para</label>
+            <select id="destino" name="destino">
+                <option value="segundos">Segundos</option>
+                <option value="minutos">Minutos</option>
+                <option value="horas">Horas</option>
+                <option value="dias">Dias</option>
+                <option value="meses" selected>Meses</option>
+                <option value="anos">Anos</option>
+            </select>
+
+            <button type="submit">Converter</button>
+        </form>
+
+        {% if resultado is not none %}
+        <div class="resultado-calculo">
+            <span>RESULTADO DA CONVERSÃO</span>
+            <h2>{{ "%.6g"|format(resultado.valor) }}</h2>
+            <p>{{ resultado.unidade }}</p>
+        </div>
+        {% endif %}
+
+        {% if erro %}
+        <p class="erro-calculo">{{ erro }}</p>
+        {% endif %}
+
+        <p class="aviso-calculo">Convenção usada: 1 mês = 30 dias e 1 ano = 365 dias.</p>
+    </main>
+</body>
+</html>
+  
