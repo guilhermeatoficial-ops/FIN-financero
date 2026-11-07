@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico | Financeiro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="pagina-calculo">
+    <main class="calculadora-card historico-card">
+        <a class="voltar-painel" href="{{ url_for('painel') }}">← Voltar ao painel</a>
+        <div class="cabecalho-calculo">
+            <span class="icone-calculo">▥</span>
+            <p class="etiqueta-calculo">SEUS REGISTROS</p>
+            <h1>Histórico de cálculos</h1>
+            <p>Veja as operações realizadas nesta conta.</p>
+        </div>
+
+        {% if registros %}
+            <div class="lista-historico">
+                {% for registro in registros %}
+                <article class="item-historico">
+                    <div class="historico-topo">
+                        <h2>{{ registro.ferramenta }}</h2>
+                        <span>{{ registro.data }}</span>
+                    </div>
+                    <p>{{ registro.detalhes }}</p>
+                    <strong>{{ registro.resultado }}</strong>
+                </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="historico-vazio">
+                <h2>Nenhum cálculo por aqui ainda.</h2>
+                <p>Quando você fizer uma simulação, ela aparecerá nesta página.</p>
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>
+  
